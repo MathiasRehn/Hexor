@@ -1,0 +1,465 @@
+        /*
+                //När spelare attackerar udda rader
+        if (document.getElementById(x).parentElement.className == "odd"){
+            if(x < 200){
+                if (x==101){
+                            if(document.getElementById(parseInt(x)+1).className == "player2"){
+                                totalPlayer2++;
+                            } else if (document.getElementById(parseInt(x)+1).className == "player1"){
+                                totalPlayer1++;}                            
+                            if (document.getElementById(parseInt(x)+1).className == "player2Tower"){
+                                totalPlayer2 += 2;
+                            } else if (document.getElementById(parseInt(x)+1).className == "player1Tower"){
+                                totalPlayer1 += 2;}
+                            if(document.getElementById(parseInt(x)+100).className == "player2"){
+                                totalPlayer2++;
+                            } else if (document.getElementById(parseInt(x)+100).className == "player1"){
+                                totalPlayer1++;}                            
+                            if (document.getElementById(parseInt(x)+100).className == "player2Tower"){
+                                totalPlayer2 += 2;
+                            } else if (document.getElementById(parseInt(x)+100).className == "player1Tower"){
+                                    totalPlayer1 += 2;}
+                            if(document.getElementById(parseInt(x)+101).className == "player2"){
+                                        totalPlayer2++;
+                            } else if (document.getElementById(parseInt(x)+101).className == "player1"){
+                                        totalPlayer1++;}                            
+                            if (document.getElementById(parseInt(x)+101).className == "player2Tower"){
+                                        totalPlayer2 += 2;
+                            } else if (document.getElementById(parseInt(x)+101).className == "player1Tower"){
+                                            totalPlayer1 += 2;}
+                } else if (x==110){
+                            if(document.getElementById(x-1).className == "player2"){
+                                totalPlayer2++;
+                            } else if (document.getElementById(x-1).className == "player1"){
+                                totalPlayer1++;}                            
+                            if (document.getElementById(x-1).className == "player2Tower"){
+                                totalPlayer2 += 2;
+                            } else if (document.getElementById(x-1).className == "player1Tower"){
+                                totalPlayer1 += 2;}
+                            if(document.getElementById(parseInt(x)+100).className == "player2"){
+                                totalPlayer2++;
+                            } else if (document.getElementById(parseInt(x)+100).className == "player1"){
+                                totalPlayer1++;}                            
+                            if (document.getElementById(parseInt(x)+100).className == "player2Tower"){
+                                totalPlayer2 += 2;
+                            } else if (document.getElementById(parseInt(x)+100).className == "player1Tower"){
+                                    totalPlayer1 += 2;}
+                            if(document.getElementById(parseInt(x)+101).className == "player2"){
+                                        totalPlayer2++;
+                            } else if (document.getElementById(parseInt(x)+101).className == "player1"){
+                                        totalPlayer1++;}                            
+                            if (document.getElementById(parseInt(x)+101).className == "player2Tower"){
+                                        totalPlayer2 += 2;
+                            } else if (document.getElementById(parseInt(x)+101).className == "player1Tower"){
+                                            totalPlayer1 += 2;}
+                } else {
+                            if(document.getElementById(parseInt(x)+1).className == "player2"){
+                                totalPlayer2++;
+                            } else if (document.getElementById(parseInt(x)+1).className == "player1"){
+                                totalPlayer1++;}                            
+                            if (document.getElementById(parseInt(x)+1).className == "player2Tower"){
+                                totalPlayer2 += 2;
+                            } else if (document.getElementById(parseInt(x)+1).className == "player1Tower"){
+                                    totalPlayer1 += 2;}
+                            if(document.getElementById(x-1).className == "player2"){
+                                totalPlayer2++;
+                            } else if (document.getElementById(x-1).className == "player1"){
+                                totalPlayer1++;}                            
+                            if (document.getElementById(x-1).className == "player2Tower"){
+                                totalPlayer2 += 2;
+                            } else if (document.getElementById(x-1).className == "player1Tower"){
+                                totalPlayer1 += 2;}
+                            if(document.getElementById(parseInt(x)+100).className == "player2"){
+                                totalPlayer2++;
+                            } else if (document.getElementById(parseInt(x)+100).className == "player1"){
+                                totalPlayer1++;}                            
+                            if (document.getElementById(parseInt(x)+100).className == "player2Tower"){
+                                totalPlayer2 += 2;
+                            } else if (document.getElementById(parseInt(x)+100).className == "player1Tower"){
+                                    totalPlayer1 += 2;}
+                            if(document.getElementById(parseInt(x)+101).className == "player2"){
+                                        totalPlayer2++;
+                            } else if (document.getElementById(parseInt(x)+101).className == "player1"){
+                                        totalPlayer1++;}                            
+                            if (document.getElementById(parseInt(x)+101).className == "player2Tower"){
+                                        totalPlayer2 += 2;
+                            } else if (document.getElementById(parseInt(x)+101).className == "player1Tower"){
+                                            totalPlayer1 += 2;}
+                        }
+            }
+                        //Sista raden
+                else if(x > 900){
+                            //Första rutan sista raden
+                    if (x==901){
+                                if(document.getElementById(parseInt(x)+1).className == "player2"){
+                                    totalPlayer2++;
+                                } else if (document.getElementById(parseInt(x)+1).className == "player1"){
+                                    totalPlayer1++;}                            
+                                if (document.getElementById(parseInt(x)+1).className == "player2Tower"){
+                                    totalPlayer2 += 2;
+                                } else if (document.getElementById(parseInt(x)+1).className == "player1Tower"){
+                                    totalPlayer1 += 2;}
+                                if(document.getElementById(x-100).className == "player2"){
+                                    totalPlayer2++;
+                                } else if (document.getElementById(x-100).className == "player1"){
+                                    totalPlayer1++;}                            
+                                if (document.getElementById(x-100).className == "player2Tower"){
+                                    totalPlayer2 += 2;
+                                } else if (document.getElementById(x-100).className == "player1Tower"){
+                                        totalPlayer1 += 2;}
+                                if(document.getElementById(x-99).className == "player2"){
+                                            totalPlayer2++;
+                                } else if (document.getElementById(x-99).className == "player1"){
+                                            totalPlayer1++;}                            
+                                if (document.getElementById(x-99).className == "player2Tower"){
+                                            totalPlayer2 += 2;
+                                } else if (document.getElementById(x-99).className == "player1Tower"){
+                                                totalPlayer1 += 2;}
+                            //FSista rutan sista raden
+                    } else if (x==910){
+                                if(document.getElementById(x-1).className == "player2"){
+                                    totalPlayer2++;
+                                } else if (document.getElementById(x-1).className == "player1"){
+                                    totalPlayer1++;}                            
+                                if (document.getElementById(x-1).className == "player2Tower"){
+                                    totalPlayer2 += 2;
+                                } else if (document.getElementById(x-1).className == "player1Tower"){
+                                    totalPlayer1 += 2;}
+                                    if(document.getElementById(x-100).className == "player2"){
+                                        totalPlayer2++;
+                                    } else if (document.getElementById(x-100).className == "player1"){
+                                        totalPlayer1++;}                            
+                                    if (document.getElementById(x-100).className == "player2Tower"){
+                                        totalPlayer2 += 2;
+                                    } else if (document.getElementById(x-100).className == "player1Tower"){
+                                            totalPlayer1 += 2;}
+                                    if(document.getElementById(x-99).className == "player2"){
+                                                totalPlayer2++;
+                                    } else if (document.getElementById(x-99).className == "player1"){
+                                                totalPlayer1++;}                            
+                                    if (document.getElementById(x-99).className == "player2Tower"){
+                                                totalPlayer2 += 2;
+                                    } else if (document.getElementById(x-99).className == "player1Tower"){
+                                                    totalPlayer1 += 2;}
+                    } else {
+                                if(document.getElementById(parseInt(x)+1).className == "player2"){
+                                    totalPlayer2++;
+                                } else if (document.getElementById(parseInt(x)+1).className == "player1"){
+                                    totalPlayer1++;}                            
+                                if (document.getElementById(parseInt(x)+1).className == "player2Tower"){
+                                    totalPlayer2 += 2;
+                                } else if (document.getElementById(parseInt(x)+1).className == "player1Tower"){
+                                        totalPlayer1 += 2;}
+                                if(document.getElementById(x-1).className == "player2"){
+                                    totalPlayer2++;
+                                } else if (document.getElementById(x-1).className == "player1"){
+                                    totalPlayer1++;}                            
+                                if (document.getElementById(x-1).className == "player2Tower"){
+                                    totalPlayer2 += 2;
+                                } else if (document.getElementById(x-1).className == "player1Tower"){
+                                    totalPlayer1 += 2;}
+                                if(document.getElementById(x-100).className == "player2"){
+                                                    totalPlayer2++;
+                                } else if (document.getElementById(x-100).className == "player1"){
+                                                    totalPlayer1++;}                            
+                                if (document.getElementById(x-100).className == "player2Tower"){
+                                                    totalPlayer2 += 2;
+                                } else if (document.getElementById(x-100).className == "player1Tower"){
+                                                        totalPlayer1 += 2;}
+                                if(document.getElementById(x-99).className == "player2"){
+                                                            totalPlayer2++;
+                                } else if (document.getElementById(x-99).className == "player1"){
+                                                            totalPlayer1++;}                            
+                                                if (document.getElementById(x-99).className == "player2Tower"){
+                                                            totalPlayer2 += 2;
+                                                } else if (document.getElementById(x-99).className == "player1Tower"){
+                                                                totalPlayer1 += 2;}
+                            }
+                    } else {
+                    if (x%100 == 1){ 
+                        if(document.getElementById(parseInt(x)+1).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(parseInt(x)+1).className == "player1"){
+                            totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(parseInt(x)+1).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(parseInt(x)+1).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+
+                        if(document.getElementById(x-100).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(x-100).className == "player1"){
+                            totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(x-99).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(x-99).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+
+                            if(document.getElementById(x-99).className == "player2"){
+                                totalPlayer2++;
+                            } else if (document.getElementById(x-99).className == "player1"){
+                                totalPlayer1++;
+                            } 
+                            
+                            if (document.getElementById(x-99).className == "player2Tower"){
+                                totalPlayer2 += 2;
+                            } else if (document.getElementById(x-99).className == "player1Tower"){
+                                totalPlayer1 += 2;}
+                        
+                        if(document.getElementById(parseInt(x)+100).className == "player2"){
+                                totalPlayer2++;
+                        } else if (document.getElementById(parseInt(x)+100).className == "player1"){
+                                totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(parseInt(x)+100).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(parseInt(x)+100).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+    
+                            if(document.getElementById(parseInt(x)+101).className == "player2"){
+                                totalPlayer2++;
+                        } else if (document.getElementById(parseInt(x)+101).className == "player1"){
+                                totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(parseInt(x)+101).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(parseInt(x)+101).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+                    //När sista rutan i en rad attackeras.
+                    } else if(x%100 == 10){
+                        if(document.getElementById(x-1).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(x-1).className == "player1"){
+                            totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(x-1).className == "player2Tower"){
+                                totalPlayer2 += 2;
+                        } else if (document.getElementById(x-1).className == "player1Tower"){
+                                totalPlayer1 += 2;}
+                            
+                        if(document.getElementById(x-99).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(x-99).className == "player1"){
+                            totalPlayer1++;
+                        }  
+                        
+                        if (document.getElementById(x-99).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(x-99).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+        
+                        if(document.getElementById(parseInt(x)+101).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(parseInt(x)+101).className == "player1"){
+                                totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(parseInt(x)+101).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(parseInt(x)+101).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+                        
+                    //Alla andra ojämna rader
+                        }else {
+                        if (document.getElementById(parseInt(x)+1).className == "player2"){
+                        totalPlayer2++;
+                    } else if (document.getElementById(parseInt(x)+1).className == "player1"){
+                        totalPlayer1++;}                            
+                    if (document.getElementById(parseInt(x)+1).className == "player2Tower"){
+                        totalPlayer2 += 2;
+                    } else if (document.getElementById(parseInt(x)+1).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+                    if(document.getElementById(x-1).className == "player2"){
+                        totalPlayer2++;
+                    } else if (document.getElementById(x-1).className == "player1"){
+                        totalPlayer1++;}                            
+                    if (document.getElementById(x-1).className == "player2Tower"){
+                        totalPlayer2 += 2;
+                    } else if (document.getElementById(x-1).className == "player1Tower"){
+                        totalPlayer1 += 2;}
+                    if(document.getElementById(parseInt(x)+100).className == "player2"){
+                        totalPlayer2++;
+                    } else if (document.getElementById(parseInt(x)+100).className == "player1"){
+                        totalPlayer1++;}                            
+                    if (document.getElementById(parseInt(x)+100).className == "player2Tower"){
+                        totalPlayer2 += 2;
+                    } else if (document.getElementById(parseInt(x)+100).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+                    if(document.getElementById(parseInt(x)+101).className == "player2"){
+                                totalPlayer2++;
+                    } else if (document.getElementById(parseInt(x)+101).className == "player1"){
+                                totalPlayer1++;}                            
+                    if (document.getElementById(parseInt(x)+101).className == "player2Tower"){
+                                totalPlayer2 += 2;
+                    } else if (document.getElementById(parseInt(x)+101).className == "player1Tower"){
+                                    totalPlayer1 += 2;}
+                    if(document.getElementById(x-100).className == "player2"){
+                                        totalPlayer2++;
+                    } else if (document.getElementById(x-100).className == "player1"){
+                                        totalPlayer1++;}                            
+                    if (document.getElementById(x-100).className == "player2Tower"){
+                                        totalPlayer2 += 2;
+                    } else if (document.getElementById(x-100).className == "player1Tower"){
+                                            totalPlayer1 += 2;}
+                    if(document.getElementById(x-99).className == "player2"){
+                                                totalPlayer2++;
+                    } else if (document.getElementById(x-99).className == "player1"){
+                                                totalPlayer1++;}                            
+                    if (document.getElementById(x-99).className == "player2Tower"){
+                                                totalPlayer2 += 2;
+                    } else if (document.getElementById(x-99).className == "player1Tower"){
+                                                    totalPlayer1 += 2;}
+                    }
+                //När spelare attackerar jämna rader
+                }
+            }else if (document.getElementById(x).parentElement.className == "even"){
+
+                    //När första rutan i en rad attackeras.
+                    if (x%100 == 1){ 
+                        if(document.getElementById(parseInt(x)+1).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(parseInt(x)+1).className == "player1"){
+                            totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(parseInt(x)+1).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(parseInt(x)+1).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+
+                        if(document.getElementById(x-100).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(x-100).className == "player1"){
+                            totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(x-100).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(x-100).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+                        
+                        if(document.getElementById(parseInt(x)+100).className == "player2"){
+                                totalPlayer2++;
+                        } else if (document.getElementById(parseInt(x)+100).className == "player1"){
+                                totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(parseInt(x)+100).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(parseInt(x)+100).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+                    
+                    //När sista rutan i en rad attackeras.
+                    } else if(x%100 == 11){
+                        if(document.getElementById(x-1).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(x-1).className == "player1"){
+                            totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(x-1).className == "player2Tower"){
+                                totalPlayer2 += 2;
+                        } else if (document.getElementById(x-1).className == "player1Tower"){
+                                totalPlayer1 += 2;}
+                            
+                        if(document.getElementById(x-101).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(x-101).className == "player1"){
+                            totalPlayer1++;
+                        }  
+                        
+                        if (document.getElementById(x-101).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(x-101).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+        
+                        if(document.getElementById(parseInt(x)+99).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(parseInt(x)+99).className == "player1"){
+                                totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(parseInt(x)+99).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(parseInt(x)+99).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+                        
+                    //När alla andra rutor i en rad attackeras.
+                    } else {
+                           
+                        if(document.getElementById(x-1).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(x-1).className == "player1"){
+                            totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(x-1).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(x-1).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+                        
+                        if(document.getElementById(parseInt(x)+1).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(parseInt(x)+1).className == "player1"){
+                             totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(parseInt(x)+1).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(parseInt(x)+1).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+
+                        if(document.getElementById(x-100).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(x-100).className == "player1"){
+                            totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(x-100).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(x-100).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+
+                        if(document.getElementById(x-101).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(x-101).className == "player1"){
+                            totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(x-101).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(x-101).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+
+                        if(document.getElementById(parseInt(x)+100).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(parseInt(x)+100).className == "player1"){
+                            totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(parseInt(x)+100).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(parseInt(x)+100).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+
+
+                        if(document.getElementById(parseInt(x)+99).className == "player2"){
+                            totalPlayer2++;
+                        } else if (document.getElementById(parseInt(x)+99).className == "player1"){
+                            totalPlayer1++;
+                        } 
+                        
+                        if (document.getElementById(parseInt(x)+99).className == "player2Tower"){
+                            totalPlayer2 += 2;
+                        } else if (document.getElementById(parseInt(x)+99).className == "player1Tower"){
+                            totalPlayer1 += 2;}
+                        }
+            }  
+            */

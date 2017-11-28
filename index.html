@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="C:\Hexor\stil.css">
+
+	<title>Hexor</title>
+
+	<div id="modalPass" class="modal">
+		<div class="modal-content">
+			<span id="modalPassClose" class="modalPassClose">x</span>
+			<h2>The game is over because you passed sequebsed to eachother</h2>
+			<p>You can now either take turns to play the game to the end or restart the game to start from the beginnng</p>
+		</div>
+	</div>
+
+	<div id="modalWinOnTimePlayer2" class="modal">
+		<div class="modal-content">
+			<span id="modalWinOnTimePlayer2Close" class="modalWinOnTimePlayer2Close">x</span>
+			<h2>PLAYER 2 WINS ON TIME</h2>
+			<p>To play again close this window and press RESTART.</p>
+		</div>
+	</div>
+
+	<div id="modalWinOnTimePlayer1" class="modal">
+		<div class="modal-content">
+			<span id="modalWinOnTimePlayer1Close" class="modalWinOnTimePlayer1Close">x</span>
+			<h2>PLAYER 1 WINS ON TIME</h2>
+			<p>To play again close this window and press RESTART.</p>
+		</div>
+	</div>
+
+	<div id="modalRules" class="modal">
+		<div class="modal-content">
+			<span id="modalRulesClose" class="modalRulesClose">x</span>
+			<h2>Rules of Hexor</h2>
+			<p>Hexor is a two-player game. The board is empty at the onset of the game. Green makes the first move, after which Yellow
+				and Green alternate until the end of the game.
+			</p>
+
+			<h3>Goal:</h3>
+			<p>The player with most taken hexagons wins. A player get 1 point for every hexagon in their own color. If a player run out
+				of time, the player lose immedilty. It dosent matter then who has the most hexagons.
+			</p>
+
+			<h3>On your turn you choose 1 of 4 options:</h3>
+			<p>Expand</p>
+			<p>Build tower</p>
+			<p>Attack</p>
+			<p>Pass</p>
+
+			<h3>Expand</h3>
+			<p>Turn two empty hexagons in to a hexagon into your own color. The hexagons do not have to be placed next to each other.
+			</p>
+
+			<h3>Build tower</h3>
+			<p>Select one of your already taken hexgons. This is now turning into a tower. The tower does not give a score, but on the
+				other hand, the tower gives +1 in attack and defense.</p>
+
+			<h3>Attack</h3>
+			<p>Select one of the opponent's hexagons and you will attack this. In an attack, all surrounding hexagons count to the hexagon
+				you attacked. The other player defends with all surrounding hexagons count to the hexagon you attacked.</p>
+
+			<h3>Pass</h3>
+			<p>You pass your turn. If both player pass next after each other the game is over. The player whose turn it is to move may
+				affirm the end of a game and pass. If the other player does not wish to end the game, he may continue playing, in which
+				case the player who passed automatically regains the right to play. Play continues until both sides agree that the game
+				has ended. </p>
+		</div>
+	</div>
+</head>
+
+<body>
+
+	<img src="C:\Hexor\nyHex.png" alt="" class="image">
+
+	<table class="board">
+
+		<table class="even">
+			<tr class="even">
+				<td id="0" class="ghost"></td>
+				<td id="1" class="ghost"></td>
+				<td id="2" class="ghost"></td>
+				<td id="3" class="ghost"></td>
+				<td id="4" class="ghost"></td>
+				<td id="5" class="ghost"></td>
+				<td id="6" class="ghost"></td>
+				<td id="7" class="ghost"></td>
+				<td id="8" class="ghost"></td>
+				<td id="9" class="ghost"></td>
+				<td id="10" class="ghost"></td>
+				<td id="11" class="ghost"></td>
+				<td id="12" class="ghost"></td>
+			</tr>
+		</table>
+
+
+		<table class="odd">
+			<tr class="odd">
+				<td id="100" class="ghost"></td>
+				<td id="101" class="empty"></td>
+				<td id="102" class="empty"></td>
+				<td id="103" class="empty"></td>
+				<td id="104" class="empty"></td>
+				<td id="105" class="empty"></td>
+				<td id="106" class="empty"></td>
+				<td id="107" class="empty"></td>
+				<td id="108" class="empty"></td>
+				<td id="109" class="empty"></td>
+				<td id="110" class="empty"></td>
+				<td id="111" class="ghost"></td>
+			</tr>
+		</table>
+
+		<table class="even">
+			<tr class="even">
+				<td id="200" class="ghost"></td>
+				<td id="201" class="empty"></td>
+				<td id="202" class="empty"></td>
+				<td id="203" class="empty"></td>
+				<td id="204" class="empty"></td>
+				<td id="205" class="empty"></td>
+				<td id="206" class="empty"></td>
+				<td id="207" class="empty"></td>
+				<td id="208" class="empty"></td>
+				<td id="209" class="empty"></td>
+				<td id="210" class="empty"></td>
+				<td id="211" class="empty"></td>
+				<td id="212" class="ghost"></td>
+			</tr>
+		</table>
+
+		<table class="odd">
+			<tr class="odd">
+				<td id="300" class="ghost"></td>
+				<td id="301" class="empty"></td>
+				<td id="302" class="empty"></td>
+				<td id="303" class="empty"></td>
+				<td id="304" class="empty"></td>
+				<td id="305" class="empty"></td>
+				<td id="306" class="empty"></td>
+				<td id="307" class="empty"></td>
+				<td id="308" class="empty"></td>
+				<td id="309" class="empty"></td>
+				<td id="310" class="empty"></td>
+				<td id="311" class="ghost"></td>
+			</tr>
+		</table>
+
+		<table class="even">
+			<tr class="even">
+				<td id="400" class="ghost"></td>
+				<td id="401" class="empty"></td>
+				<td id="402" class="empty"></td>
+				<td id="403" class="empty"></td>
+				<td id="404" class="empty"></td>
+				<td id="405" class="empty"></td>
+				<td id="406" class="empty"></td>
+				<td id="407" class="empty"></td>
+				<td id="408" class="empty"></td>
+				<td id="409" class="empty"></td>
+				<td id="410" class="empty"></td>
+				<td id="411" class="empty"></td>
+				<td id="412" class="ghost"></td>
+			</tr>
+		</table>
+
+		<table class="odd">
+			<tr class="odd">
+				<td id="500" class="ghost"></td>
+				<td id="501" class="empty"></td>
+				<td id="502" class="empty"></td>
+				<td id="503" class="empty"></td>
+				<td id="504" class="empty"></td>
+				<td id="505" class="empty"></td>
+				<td id="506" class="empty"></td>
+				<td id="507" class="empty"></td>
+				<td id="508" class="empty"></td>
+				<td id="509" class="empty"></td>
+				<td id="510" class="empty"></td>
+				<td id="511" class="ghost"></td>
+			</tr>
+		</table>
+
+		<table class="even">
+			<tr class="even">
+				<td id="600" class="ghost"></td>
+				<td id="601" class="empty"></td>
+				<td id="602" class="empty"></td>
+				<td id="603" class="empty"></td>
+				<td id="604" class="empty"></td>
+				<td id="605" class="empty"></td>
+				<td id="606" class="empty"></td>
+				<td id="607" class="empty"></td>
+				<td id="608" class="empty"></td>
+				<td id="609" class="empty"></td>
+				<td id="610" class="empty"></td>
+				<td id="611" class="empty"></td>
+				<td id="612" class="ghost"></td>
+			</tr>
+		</table>
+
+		<table class="odd">
+			<tr class="odd">
+				<td id="700" class="ghost"></td>
+				<td id="701" class="empty"></td>
+				<td id="702" class="empty"></td>
+				<td id="703" class="empty"></td>
+				<td id="704" class="empty"></td>
+				<td id="705" class="empty"></td>
+				<td id="706" class="empty"></td>
+				<td id="707" class="empty"></td>
+				<td id="708" class="empty"></td>
+				<td id="709" class="empty"></td>
+				<td id="710" class="empty"></td>
+				<td id="711" class="ghost"></td>
+			</tr>
+		</table>
+
+		<table class="even">
+			<tr class="even">
+				<td id="800" class="ghost"></td>
+				<td id="801" class="empty"></td>
+				<td id="802" class="empty"></td>
+				<td id="803" class="empty"></td>
+				<td id="804" class="empty"></td>
+				<td id="805" class="empty"></td>
+				<td id="806" class="empty"></td>
+				<td id="807" class="empty"></td>
+				<td id="808" class="empty"></td>
+				<td id="809" class="empty"></td>
+				<td id="810" class="empty"></td>
+				<td id="811" class="empty"></td>
+				<td id="812" class="ghost"></td>
+			</tr>
+		</table>
+
+		<table class="odd">
+			<tr class="odd">
+				<td id="900" class="ghost"></td>
+				<td id="901" class="empty"></td>
+				<td id="902" class="empty"></td>
+				<td id="903" class="empty"></td>
+				<td id="904" class="empty"></td>
+				<td id="905" class="empty"></td>
+				<td id="906" class="empty"></td>
+				<td id="907" class="empty"></td>
+				<td id="908" class="empty"></td>
+				<td id="909" class="empty"></td>
+				<td id="910" class="empty"></td>
+				<td id="911" class="ghost"></td>
+			</tr>
+		</table>
+
+		<table class="even">
+			<tr class="even">
+				<td id="1000" class="ghost"></td>
+				<td id="1001" class="ghost"></td>
+				<td id="1002" class="ghost"></td>
+				<td id="1003" class="ghost"></td>
+				<td id="1004" class="ghost"></td>
+				<td id="1005" class="ghost"></td>
+				<td id="1006" class="ghost"></td>
+				<td id="1007" class="ghost"></td>
+				<td id="1008" class="ghost"></td>
+				<td id="1009" class="ghost"></td>
+				<td id="1010" class="ghost"></td>
+				<td id="1011" class="ghost"></td>
+				<td id="1012" class="ghost"></td>
+			</tr>
+		</table>
+
+	</table>
+
+	<div class="scoreTablePlayer">
+		<div class="scorePlayer1"> Score 0 </div>
+		<div class="clockPlayer1"> Time 180 </div>
+
+
+		<div class="buttons">
+			<button id="newGameButton">START</button>
+			<button id="rulesButton">RULES</button>
+			<button id="passButton">PASS</button>
+		</div>
+
+		<div class="scorePlayer2"> Score 0 </div>
+		<div class="clockPlayer2"> Time 180 </div>
+	</div>
+
+	</table>
+
+	<script src="C:\Hexor\behaviour.js" type="text/javascript"></script>
+
+</body>
+
+</html>
