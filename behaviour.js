@@ -1,61 +1,47 @@
 
-function start(){
 var modalRules = document.getElementById('modalRules');
 var modalWinOnTimePlayer2 = document.getElementById('modalWinOnTimePlayer2');
 var modalWinOnTimePlayer1 = document.getElementById('modalWinOnTimePlayer1');
 var modalPass = document.getElementById('modalPass');
-var rulesButton = document.getElementById('rulesButton');
-var passButton = document.getElementById('passButton');
-var newGameButton = document.getElementById('newGameButton');
+var rulesButton = $("#rulesButton");
+var passButton = $("#passButton");
+var newGameButton = $("#newGameButton");
 var modalPassClose = document.getElementsByClassName('modalPassClose')[0];
 var modalWinOnTimePlayer2Close = document.getElementsByClassName('modalWinOnTimePlayer2Close')[0];
 var modalWinOnTimePlayer1Close = document.getElementsByClassName('modalWinOnTimePlayer1Close')[0];
 var modalRulesClose = document.getElementsByClassName('modalRulesClose')[0];
+passButton.disabled = true;
+var startValueScore = 0;
+var startValueClock = 180;
+var scorePlayer1 = startValueScore;
+var scorePlayer2 = startValueScore;
+var clockPlayer1 = startValueClock;
+var clockPlayer2 = startValueClock;
+document.querySelector(".scorePlayer1").innerHTML = "Score " + scorePlayer1;
+document.querySelector(".clockPlayer1").innerHTML = "Time " + clockPlayer1;
+document.querySelector(".scorePlayer2").innerHTML = "Score " + scorePlayer2;
+document.querySelector(".clockPlayer2").innerHTML = "Time " + clockPlayer2;
+newGameButton.html("START");
+rulesButton.html("RULES");
+passButton.html("PASS");
 var numberOfPass;
 var numberOfEmptyHexagons = document.querySelectorAll(".empty").length;
-var whosPlayerTurn = 1;
-var whosPlayerTurnInnerCount = 15;
-var scorePlayer1;
-var scorePlayer2;
-var clockPlayer1;
-var clockPlayer2;
+var whosPlayerTurn;
+var whosPlayerTurnInnerCount;
 var interval;
 
 
-rulesButton.onclick = function () {
+rulesButton.click(function () {
     modalRules.style.display = "block";
-}
+})
 
-passButton.onclick = function () {
+
+passButton.click(function () {
     ++numberOfPass;
     if (whosPlayerTurn == 2) {
-        whosPlayerTurn = 1;
-        whosPlayerTurnInnerCount = 10;
-        document.querySelector(".scorePlayer1").innerHTML = "Score " + scorePlayer1;
-        document.querySelector(".clockPlayer1").innerHTML = "Time " + clockPlayer1;
-        document.querySelector(".scorePlayer2").innerHTML = "Score " + scorePlayer2;
-        document.querySelector(".clockPlayer2").innerHTML = "Time " + clockPlayer2;
-        document.querySelector(".clockPlayer2").style.visibility = "hidden";
-        document.querySelector(".scorePlayer2").style.visibility = "hidden";
-        document.querySelector(".clockPlayer1").style.visibility = "visible";
-        document.querySelector(".scorePlayer1").style.visibility = "visible";
-        rulesButton.style.backgroundColor = "#4C7F54";
-        newGameButton.style.backgroundColor = "#4C7F54";
-        passButton.style.backgroundColor = "#4C7F54";
+        playersTurnToPlayer1();
     } else if (whosPlayerTurn == 1) {
-        whosPlayerTurn = 2;
-        whosPlayerTurnInnerCount = 20;
-        document.querySelector(".scorePlayer1").innerHTML = "Score " + scorePlayer1;
-        document.querySelector(".clockPlayer1").innerHTML = "Time " + clockPlayer1;
-        document.querySelector(".scorePlayer2").innerHTML = "Score " + scorePlayer2;
-        document.querySelector(".clockPlayer2").innerHTML = "Time " + clockPlayer2;
-        document.querySelector(".clockPlayer1").style.visibility = "hidden";
-        document.querySelector(".scorePlayer1").style.visibility = "hidden";
-        document.querySelector(".clockPlayer2").style.visibility = "visible";
-        document.querySelector(".scorePlayer2").style.visibility = "visible";
-        rulesButton.style.backgroundColor = "rgb(248, 177, 25)";
-        newGameButton.style.backgroundColor = "rgb(248, 177, 25)";
-        passButton.style.backgroundColor = "rgb(248, 177, 25)";
+        playersTurnToPlayer2();
     }
 
     if (numberOfPass >= 2) {
@@ -67,7 +53,7 @@ passButton.onclick = function () {
         document.querySelector(".clockPlayer2").style.visibility = "visible";
         document.querySelector(".scorePlayer2").style.visibility = "visible";
     }
-}
+});
 
 modalPassClose.onclick = function () {
     modalPass.style.display = "none";
@@ -98,36 +84,22 @@ window.onclick = function (event) {
 }
 
 // When user clicks on the button, start or restart the game
-newGameButton.onclick = function () {
+newGameButton.click(function () {
     numberOfPass = 0;
     clearInterval(interval);
     interval = setInterval(startClock, 1000);
-    whosPlayerTurn = 1;
+    passButton.disabled = false;
+    scorePlayer1 = startValueScore;
+    scorePlayer2 = startValueScore;
+    clockPlayer1 = startValueClock;
+    playersTurnToPlayer1();
+    clockPlayer2 = startValueClock;
     whosPlayerTurnInnerCount = 15;
-    scorePlayer1 = 0;
-    scorePlayer2 = 0;
-    clockPlayer1 = 10;
-    clockPlayer2 = 10;
-    document.querySelector(".scorePlayer1").innerHTML = "Score " + scorePlayer1;
-    document.querySelector(".clockPlayer1").innerHTML = "Time " + clockPlayer1;
-    document.querySelector(".scorePlayer2").innerHTML = "Score " + scorePlayer2;
-    document.querySelector(".clockPlayer2").innerHTML = "Time " + clockPlayer2;
-    document.querySelector(".clockPlayer2").style.visibility = "hidden";
-    document.querySelector(".scorePlayer2").style.visibility = "hidden";
-    document.querySelector(".clockPlayer1").style.visibility = "visible";
-    document.querySelector(".scorePlayer1").style.visibility = "visible";
-    newGameButton.innerHTML = "RESTART";
-    newGameButton.style.backgroundColor = "#4C7F54";
-    rulesButton.style.backgroundColor = "#4C7F54";
-    passButton.style.backgroundColor = "#4C7F54";
-    var newGame = document.querySelectorAll(".player1, .player2, .conflictPlayer1, .conflictPlayer2, .player1Tower, .player2Tower");
-    for (i = 0; i < newGame.length; i++) {
-        newGame[i].className = "empty";
-    }
-    numberOfEmptyHexagons = document.querySelectorAll(".empty").length;
-    var tds = document.querySelectorAll('td');
-    tds.forEach(td => td.addEventListener("click", clickedOnHexagon));
-}
+    newGameButton.html("RESTART");
+    $(".player1, .player2, .conflictPlayer1, .conflictPlayer2, .player1Tower, .player2Tower").attr("class","empty");
+    numberOfEmptyHexagons = $(".empty").length;
+    $("td").click(clickedOnHexagon);
+})
 
 //Gets callead every 1000 ms
 function startClock() {
@@ -343,6 +315,7 @@ function attackedPlayerHexagon(e) {
 }
 
 function playersTurnToPlayer2() {
+    whosPlayerTurnInnerCount = 20;
     whosPlayerTurn = 2;
     clockPlayer1 += 4;
     document.querySelector(".scorePlayer1").innerHTML = "Score " + scorePlayer1;
@@ -353,12 +326,13 @@ function playersTurnToPlayer2() {
     document.querySelector(".scorePlayer1").style.visibility = "hidden";
     document.querySelector(".clockPlayer2").style.visibility = "visible";
     document.querySelector(".scorePlayer2").style.visibility = "visible";
-    rulesButton.style.backgroundColor = "rgb(248, 177, 25)";
-    newGameButton.style.backgroundColor = "rgb(248, 177, 25)";
-    passButton.style.backgroundColor = "rgb(248, 177, 25)";
+    rulesButton.css("backgroundColor", "rgb(248, 177, 25)");
+    newGameButton.css("backgroundColor", "rgb(248, 177, 25)");
+    passButton.css("backgroundColor", "rgb(248, 177, 25)");
 }
 
 function playersTurnToPlayer1() {
+    whosPlayerTurnInnerCount = 10;
     whosPlayerTurn = 1;
     clockPlayer2 += 4;
     document.querySelector(".scorePlayer1").innerHTML = "Score " + scorePlayer1;
@@ -369,8 +343,7 @@ function playersTurnToPlayer1() {
     document.querySelector(".scorePlayer2").style.visibility = "hidden";
     document.querySelector(".clockPlayer1").style.visibility = "visible";
     document.querySelector(".scorePlayer1").style.visibility = "visible";
-    rulesButton.style.backgroundColor = "#4C7F54";
-    newGameButton.style.backgroundColor = "#4C7F54";
-    passButton.style.backgroundColor = "#4C7F54";
-}
+    rulesButton.css("backgroundColor", "#4C7F54");
+    newGameButton.css("backgroundColor", "#4C7F54");
+    passButton.css("backgroundColor", "#4C7F54");
 }
