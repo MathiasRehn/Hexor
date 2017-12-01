@@ -391,11 +391,9 @@ button:hover {
   background-color: #fefefe;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin: 5% auto;
-  /* 15% from the top and centered */
   padding: 5px;
   border: 1px solid #bdbcbc;
   width: 50%;
-  /* Could be more or less, depending on screen size */
 }
 .modalPassClose,
 .modalRulesClose,

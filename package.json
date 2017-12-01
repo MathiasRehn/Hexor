@@ -1,0 +1,23 @@
+{
+  "name": "hexor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "behaviour.js",
+  "dependencies": {
+    "react": "^16.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MathiasRehn/Hexor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MathiasRehn/Hexor/issues"
+  },
+  "homepage": "https://github.com/MathiasRehn/Hexor#readme"
+}

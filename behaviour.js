@@ -17,10 +17,7 @@ var scorePlayer1 = startValueScore;
 var scorePlayer2 = startValueScore;
 var clockPlayer1 = startValueClock;
 var clockPlayer2 = startValueClock;
-document.querySelector(".scorePlayer1").innerHTML = "Score " + scorePlayer1;
-document.querySelector(".clockPlayer1").innerHTML = "Time " + clockPlayer1;
-document.querySelector(".scorePlayer2").innerHTML = "Score " + scorePlayer2;
-document.querySelector(".clockPlayer2").innerHTML = "Time " + clockPlayer2;
+printScoreTimeBothPlayers();
 newGameButton.html("START");
 rulesButton.html("RULES");
 passButton.html("PASS");
@@ -30,6 +27,12 @@ var whosPlayerTurn;
 var whosPlayerTurnInnerCount;
 var interval;
 
+function printScoreTimeBothPlayers(){
+    $(".scorePlayer1").html("Score " + scorePlayer1);
+    $(".clockPlayer1").html("Time " + clockPlayer1);
+    $(".scorePlayer2").html("Score " + scorePlayer2);
+    $(".clockPlayer2").html("Time " + clockPlayer2); 
+}
 
 rulesButton.click(function () {
     modalRules.style.display = "block";
@@ -83,7 +86,6 @@ window.onclick = function (event) {
     }
 }
 
-// When user clicks on the button, start or restart the game
 newGameButton.click(function () {
     numberOfPass = 0;
     clearInterval(interval);
@@ -96,12 +98,11 @@ newGameButton.click(function () {
     clockPlayer2 = startValueClock;
     whosPlayerTurnInnerCount = 15;
     newGameButton.html("RESTART");
-    $(".player1, .player2, .conflictPlayer1, .conflictPlayer2, .player1Tower, .player2Tower").attr("class","empty");
+    $(".player1, .player2, .conflictPlayer, .player1Tower, .player2Tower").attr("class","empty");
     numberOfEmptyHexagons = $(".empty").length;
     $("td").click(clickedOnHexagon);
 })
 
-//Gets callead every 1000 ms
 function startClock() {
     if (whosPlayerTurn == 1) {
         timePlayer1();
@@ -133,21 +134,15 @@ function timePlayer2() {
 function clickedOnHexagon(e) {
     numberOfPass = 0;
     var x = e.target.id;
-    //Om spelare väljer en "conflict"-ruta så registreras ingenting
-    if (e.target.className == "conflictPlayer1" || e.target.className == "conflictPlayer2") {
-        //Om spelare 1 vid sitt första val trycker på en av sina rutor, så skapas ett tower.
+    if (e.target.className == "conflictPlayer") {
     } else if (whosPlayerTurn == 1 && whosPlayerTurnInnerCount == 10 && e.target.className == "player1") {
         player1Tower(e);
-        //Om spelare 2 vid sitt första val trycker på en av sina rutor, så skapas ett tower.
     } else if (whosPlayerTurn == 2 && whosPlayerTurnInnerCount == 20 && e.target.className == "player2") {
         player2Tower(e);
-        //Spelare 1 får välja två nya rutor.
     } else if (whosPlayerTurn == 1 && e.target.className == "empty") {
         emptyHexagonToPlayer1(e);
-        //Spelare 2 får välja två nya rutor.
     } else if (whosPlayerTurn == 2 && e.target.className == "empty") {
         emptyHexagonToPlayer2(e);
-        //Om spelare vid sitt första val trycker på motståndaren så attackeras rutan.
     } else if ((whosPlayerTurn == 1 && whosPlayerTurnInnerCount == 10 && e.target.className == "player2") || (whosPlayerTurn == 2 && whosPlayerTurnInnerCount == 20 && e.target.className == "player1"
         || whosPlayerTurn == 1 && whosPlayerTurnInnerCount == 10 && e.target.className == "player2Tower") || (whosPlayerTurn == 2 && whosPlayerTurnInnerCount == 20 && e.target.className == "player1Tower")) {
         attackedPlayerHexagon(e);
@@ -177,10 +172,6 @@ function emptyHexagonToPlayer1(e) {
     numberOfEmptyHexagons--;
     document.querySelector(".scorePlayer1").innerHTML = "Score " + scorePlayer1;
     whosPlayerTurnInnerCount += 5;
-    if (numberOfEmptyHexagons <= 0) {
-        whosPlayerTurn = 2;
-        whosPlayerTurnInnerCount = 20;
-    }
 }
 
 function emptyHexagonToPlayer2(e) {
@@ -189,10 +180,6 @@ function emptyHexagonToPlayer2(e) {
     numberOfEmptyHexagons--;
     document.querySelector(".scorePlayer2").innerHTML = "Score " + scorePlayer2;
     whosPlayerTurnInnerCount -= 5;
-    if (numberOfEmptyHexagons <= 0) {
-        whosPlayerTurn = 1;
-        whosPlayerTurnInnerCount = 10;
-    }
 }
 
 function attackedPlayerHexagon(e) {
@@ -301,13 +288,13 @@ function attackedPlayerHexagon(e) {
         scorePlayer1--;
 
     } else if ((surroundingHexagonsPlayer2 > 0 && surroundingHexagonsPlayer2 == surroundingHexagonsPlayer1) && e.target.className == "player2") {
-        e.target.className = "conflictPlayer2";
+        e.target.className = "conflictPlayer";
         whosPlayerTurn = 2;
         whosPlayerTurnInnerCount = 20;
         scorePlayer2--;
 
     } else if ((surroundingHexagonsPlayer2 > 0 && surroundingHexagonsPlayer2 == surroundingHexagonsPlayer1) && e.target.className == "player1") {
-        e.target.className = "conflictPlayer1";
+        e.target.className = "conflictPlayer";
         whosPlayerTurn = 1;
         whosPlayerTurnInnerCount = 10;
         scorePlayer1--;
@@ -318,10 +305,7 @@ function playersTurnToPlayer2() {
     whosPlayerTurnInnerCount = 20;
     whosPlayerTurn = 2;
     clockPlayer1 += 4;
-    document.querySelector(".scorePlayer1").innerHTML = "Score " + scorePlayer1;
-    document.querySelector(".clockPlayer1").innerHTML = "Time " + clockPlayer1;
-    document.querySelector(".scorePlayer2").innerHTML = "Score " + scorePlayer2;
-    document.querySelector(".clockPlayer2").innerHTML = "Time " + clockPlayer2;
+    printScoreTimeBothPlayers();
     document.querySelector(".clockPlayer1").style.visibility = "hidden";
     document.querySelector(".scorePlayer1").style.visibility = "hidden";
     document.querySelector(".clockPlayer2").style.visibility = "visible";
@@ -335,14 +319,11 @@ function playersTurnToPlayer1() {
     whosPlayerTurnInnerCount = 10;
     whosPlayerTurn = 1;
     clockPlayer2 += 4;
-    document.querySelector(".scorePlayer1").innerHTML = "Score " + scorePlayer1;
-    document.querySelector(".clockPlayer1").innerHTML = "Time " + clockPlayer1;
-    document.querySelector(".scorePlayer2").innerHTML = "Score " + scorePlayer2;
-    document.querySelector(".clockPlayer2").innerHTML = "Time " + clockPlayer2;
-    document.querySelector(".clockPlayer2").style.visibility = "hidden";
-    document.querySelector(".scorePlayer2").style.visibility = "hidden";
+    printScoreTimeBothPlayers();
     document.querySelector(".clockPlayer1").style.visibility = "visible";
     document.querySelector(".scorePlayer1").style.visibility = "visible";
+    document.querySelector(".clockPlayer2").style.visibility = "hidden";
+    document.querySelector(".scorePlayer2").style.visibility = "hidden";
     rulesButton.css("backgroundColor", "#4C7F54");
     newGameButton.css("backgroundColor", "#4C7F54");
     passButton.css("backgroundColor", "#4C7F54");
