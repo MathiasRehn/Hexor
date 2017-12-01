@@ -3,14 +3,16 @@ var modalRules = document.getElementById('modalRules');
 var modalWinOnTimePlayer2 = document.getElementById('modalWinOnTimePlayer2');
 var modalWinOnTimePlayer1 = document.getElementById('modalWinOnTimePlayer1');
 var modalPass = document.getElementById('modalPass');
-var rulesButton = $("#rulesButton");
-var passButton = $("#passButton");
-var newGameButton = $("#newGameButton");
 var modalPassClose = document.getElementsByClassName('modalPassClose')[0];
 var modalWinOnTimePlayer2Close = document.getElementsByClassName('modalWinOnTimePlayer2Close')[0];
 var modalWinOnTimePlayer1Close = document.getElementsByClassName('modalWinOnTimePlayer1Close')[0];
 var modalRulesClose = document.getElementsByClassName('modalRulesClose')[0];
+var rulesButton = $("#rulesButton");
+var passButton = $("#passButton");
+var newGameButton = $("#newGameButton");
+passButton.css("opacity", "0.2");
 passButton.disabled = true;
+passButton.css("cursor", "default");
 var startValueScore = 0;
 var startValueClock = 180;
 var scorePlayer1 = startValueScore;
@@ -88,6 +90,7 @@ window.onclick = function (event) {
 
 newGameButton.click(function () {
     numberOfPass = 0;
+    passButton.css("opacity", "1.0");
     clearInterval(interval);
     interval = setInterval(startClock, 1000);
     passButton.disabled = false;
